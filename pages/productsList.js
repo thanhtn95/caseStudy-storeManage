@@ -14,19 +14,19 @@ function displayProduct(products) {
     if (user.getPosition() == 'Employee') {
         tbl.innerHTML = '<tr><td>ID</td><td>Product Name</td><td>Type</td><td>Spec</td><td>Price</td><td>Product Image</td></tr>'
         for (let i = 0; i < products.length; i++) {
-            tbl.innerHTML += '<tr><td>' + products[i].getId() + '</td><td>' + products[i].getName() + '</td><td>' + products[i].getType() + '</td><td>' + products[i].getSpec() + '</td><td>' + products[i].getPrice() + ' $</td><td><a href="'+products[i].getImgurl()+'"><img src="' + products[i].getImgurl() + '" style="width: 150px; height: 80px"></a></td></tr>'
+            tbl.innerHTML += '<tr class="notfirstTr"><td>' + products[i].getId() + '</td><td>' + products[i].getName() + '</td><td>' + products[i].getType() + '</td><td>' + products[i].getSpec() + '</td><td>' + products[i].getPrice() + ' $</td><td><a href="'+products[i].getImgurl()+'" target="_blank"><img src="' + products[i].getImgurl() + '" style="width: 150px; height: 100px"></a></td></tr>'
         }
     } else {
         tbl.innerHTML = '<tr><td>ID</td><td>Product Name</td><td>Type</td><td>Spec</td><td>Price</td><td>Product Image</td><td></td><td></td></tr>'
         for (let i = 0; i < products.length; i++) {
-            tbl.innerHTML += '<tr><td>' + products[i].getId() + '</td><td>' + products[i].getName() + '</td><td>' + products[i].getType() + '</td><td>' + products[i].getSpec() + '</td><td>' + products[i].getPrice() + ' $</td><td><a href="'+products[i].getImgurl()+'"><img src="' + products[i].getImgurl() + '" style="width: 150px; height: 80px"></a></td><td><button type="button" onclick="gotoEdit(' + products[i].getId() + ')">Edit</button></td><td><button type="button" onclick="gotoDelete(' + products[i].getId() + ')">Delete</button></td></tr>'
+            tbl.innerHTML += '<tr class="notfirstTr"><td>' + products[i].getId() + '</td><td>' + products[i].getName() + '</td><td>' + products[i].getType() + '</td><td>' + products[i].getSpec() + '</td><td>' + products[i].getPrice() + ' $</td><td><a href="'+products[i].getImgurl()+'" target="_blank"><img src="' + products[i].getImgurl() + '" style="width: 150px; height: 100px"></a></td><td><button type="button" onclick="gotoEdit(' + products[i].getId() + ')">Edit</button></td><td><button type="button" onclick="gotoDelete(' + products[i].getId() + ')">Delete</button></td></tr>'
         }
     }
 }
 
 function logOut() {
     if (confirm("Are you sure you want to logout?")) {
-        window.location.assign("index.html");
+        window.location.assign("../index.html");
     }
 }
 function goToAddForm() {
@@ -46,6 +46,12 @@ function gotoDelete(id) {
 }
 function goToEmployeeList(){
     window.location.assign('employeesList.html?'+user.getId());
+}
+
+function displayListUsingSearch(){
+    let input = document.getElementById('searchInput').value.trim().toLowerCase();
+    let productList = producthandler.getProductListByName(input,products);
+    displayProduct(productList);
 }
 
 let producthandler = new ProductDataHandler();

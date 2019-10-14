@@ -13,15 +13,23 @@ function goToEditProduct(id) {
     producthandler.editProductInfo(id, productList, userId);
 }
 
+function changeProductPic() {
+    let imgUrl = document.getElementById("imgUrl").value;
+    let preView = document.getElementById('preView');
+    preView.src= imgUrl;
+}
+
 function showInfo(obj) {
     let name = document.getElementById("name");
     let type = document.getElementById("type");
     let spec = document.getElementById("spec");
     let price = document.getElementById("price");
     let imgUrl = document.getElementById("imgUrl");
+    let preView = document.getElementById('preView');
     name.value = obj.getName();
     type.value = obj.getType();
     spec.value = obj.getSpec().split('<br>').join('--');
     price.value = obj.getPrice();
     imgUrl.value = obj.getImgurl();
+    preView.src = obj.getImgurl();
 }

@@ -1,10 +1,10 @@
 let userhandler = new UserDataHandler();
 let currentUserId = localStorage.getItem('currentUser');
 let users = userhandler.getUserList('userList');
-//let currentUser = userhandler.getUserFromId(currentUserId,users);
+let currentUser = userhandler.getUserFromId(currentUserId,users);
 let selectedUser = userhandler.getEditedUserFromUrl(users);
 
-function displayDroplist(user) {
+function displayDroplist(user, currentUser) {
     let positon = document.getElementById('position');
     if (user.getPosition() == 'Owner') {
         positon.innerHTML = '<option value="Owner">Owner</option>';
@@ -12,6 +12,9 @@ function displayDroplist(user) {
     }else{
         positon.innerHTML = '<option value="Employee">Employee</option>';
         positon.innerHTML += '<option value="Store Manager">Store Manager</option>';
+    }
+    if(user.getPosition() == 'Employee' && currentUser.getPosition() == 'Store Manager'){
+        positon.disabled = true;
     }
 }
 function setDroplist(user) {
@@ -23,13 +26,16 @@ function setDroplist(user) {
     }
 }
 
-function DisplaySelectedUserInfo(user) {
+function DisplaySelectedUserInfo(user,id) {
     let username = document.getElementById('username');
     let name = document.getElementById('name');
     let gender = document.getElementById('gender');
     let dob = document.getElementById('dob');
     let password = document.getElementById('password');
     let salary = document.getElementById('salary');
+    if(user.getId() == id){
+        salary.disabled =true;
+    }
 
     name.value = user.getName();
     gender.value = user.getGender();
@@ -45,9 +51,9 @@ function goBack() {
 function goToEditEmployeeInfo() {
     userhandler.EditUserInfo(selectedUser.getId(),users,currentUserId);
 }
-displayDroplist(selectedUser);
+displayDroplist(selectedUser,currentUser);
 setDroplist(selectedUser);
-DisplaySelectedUserInfo(selectedUser);
+DisplaySelectedUserInfo(selectedUser,currentUserId);
 
 
 

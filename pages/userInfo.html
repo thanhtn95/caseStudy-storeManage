@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Add New Employee</title>
+    <title>Current User Info</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
@@ -10,29 +10,37 @@
     fieldset{
         width: fit-content;
         margin: auto;
-        margin-top: 80px ;
+        margin-top: 30px ;
         height: fit-content;
     }
     p{
         margin-bottom: 30px;
     }
+    a{
+        font-weight: bolder;
+    }
+    body{
+        background-image: url("../product-Image/Savin-NY-Website-Background-Web2.jpg");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
 </style>
-<body background="product-Image/Savin-NY-Website-Background-Web.jpg">
+<body>
 <fieldset>
-    <legend style="margin-bottom: 50px"><h3>Add new Employee</h3></legend>
+    <legend style="margin-bottom: 50px"><h3>User Info</h3></legend>
+    <p><a>ID:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <input type="text" id="id" disabled></a></p>
     <p><a>Name:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <input type="text" id="name"></a></p>
     <p><a>Gender:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <input type="text" id="gender"></a></p>
     <p><a>Date Of Birth: <input type="date" id="dob"></a></p>
-    <p><a>Username:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" id="username"></a></p>
+    <p><a>Username:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" id="username" disabled></a></p>
     <p><a>Password:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" id="password"></a></p>
-    <p><a>Position:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<select id="position"></select></a></p>
-    <p><a>Salary:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="number" id="salary"></a></p>
-    <p><a></a></p>
-    <p><button type="button" onclick="goToAddEmployee()">Add Employee</button></p>
+    <p><a>Position:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="text" id="position" disabled></a></p>
+    <p><a>Salary:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="number" id="salary" disabled></a></p>
+    <p id="editbtn"></p>
     <p><button type="button" onclick="GoBack()">Back</button></p>
 </fieldset>
 <script src="user.js"></script>
 <script src="UserDataHandle.js"></script>
-<script src="AddEmployee.js"></script>
+<script src="userInfo.js"></script>
 </body>
 </html>

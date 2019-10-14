@@ -17,18 +17,18 @@ let ProductDataHandler = function () {
             spec = spec.split('--').join('<br>');
             let price = document.getElementById("price").value;
             let imgUrl = document.getElementById("imgUrl").value;
-            if(name !="" && type !="" && price !=""){
+            if (name != "" && type != "" && price != "") {
                 let index = 1;
-                while(!this.testIndex(index,list)){
+                while (!this.testIndex(index, list)) {
                     index++;
                 }
                 list.push(new Product(index, name, type, spec, price, imgUrl));
-                list = list.sort(function (a,b) {
+                list = list.sort(function (a, b) {
                     return a.id - b.id
                 });
                 localStorage.setItem('productList', JSON.stringify(list));
                 window.location.assign("productsList.html?" + userId);
-            }else{
+            } else {
                 alert("Don't leave the name and type or price empty!");
             }
         }
@@ -75,7 +75,7 @@ let ProductDataHandler = function () {
 
                 localStorage.setItem('productList', JSON.stringify(productList));
                 window.location.assign("productsList.html?" + userId);
-            }else{
+            } else {
                 alert("Don't leave the name and type or price empty!");
             }
         }
@@ -86,5 +86,15 @@ let ProductDataHandler = function () {
             if (arr[i].getId() == index) return false;
         }
         return true;
+    };
+
+    this.getProductListByName = function (name, list) {
+        let tmp = [];
+        for (let i = 0; i < list.length; i++) {
+            if (list[i].name.toLowerCase().includes(name)) {
+                tmp.push(list[i]);
+            }
+        }
+        return tmp;
     };
 }

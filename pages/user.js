@@ -74,6 +74,11 @@ function createUser() {
     users.push(new User(1, "Thanh", "male", "1995-07-31", "zonesama", "380617", "Owner", 0));
     users.push(new User(2, "Henrik Ahnberg", "male", "1990-12-19", "bulldog", "pepega", "Store Manager", 400));
     users.push(new User(3, "Jerry Lundkvist", "male", "1991-06-04", "jerry", "fromeu", "Employee", 200));
+    users.push(new User(4, "Gustav Magnusson", "male", "1992-04-01", "S4", "magnus", "Employee", 150));
+    users.push(new User(5, "Joakim Akterhall", "male", "1988-05-26", "akke", "chen", "Store Manager", 450));
+    users.push(new User(6, "Clement Ivanov", "male", "1990-03-06", "puppey", "monitor", "Employee", 250));
+    users.push(new User(7, "Clinton Loomis", "male", "1988-02-19", "fear", "darkness", "Employee", 195));
+    users.push(new User(8, "Katniss Everdeen", "female", "1995-08-15", "katniss", "bow", "Employee", 183));
     return users;
 }
 

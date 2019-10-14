@@ -6,7 +6,14 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
-<body background="product-Image/Savin-NY-Website-Background-Web.jpg">
+<style>
+    body{
+        background-image: url("product-Image/Savin-NY-Website-Background-Web2.jpg");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+</style>
+<body>
 <fieldset
         style="height: fit-content; width: fit-content; border: 2px ; align-self:center; margin: auto; margin-top: 250px">
     <legend><h3>Login</h3></legend>
@@ -14,7 +21,7 @@
     <p> Password:&nbsp <input type="password" id="password"></p>
     <p style="margin-left: 100px"><input type="button" value="Login" onclick="login()"></p>
 </fieldset>
-<script src="user.js"></script>
-<script src="login.js"></script>
+<script src="pages/user.js"></script>
+<script src="pages/login.js"></script>
 </body>
 </html>

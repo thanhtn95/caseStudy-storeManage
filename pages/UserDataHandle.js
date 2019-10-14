@@ -68,7 +68,7 @@ let UserDataHandler = function () {
                 }
             }
             for (let i = 0; i < list.length; i++) {
-                if (list[i].getPosition() != 'Owner' && list[i].getPosition() != 'Store Manager') {
+                if (list[i].getPosition()=='Employee') {
                     tmp.push(list[i]);
                 }
             }
@@ -161,5 +161,15 @@ let UserDataHandler = function () {
             if (arr[i].getUsername() == username) return false;
         }
         return true;
+    };
+
+    this.getUserByName = function (name, list) {
+        let tmp = [];
+        for (let i = 0; i < list.length; i++) {
+            if (list[i].getName().toLowerCase().includes(name)) {
+                tmp.push(list[i]);
+            }
+        }
+        return tmp;
     };
 }

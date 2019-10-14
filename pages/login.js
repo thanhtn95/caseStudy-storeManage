@@ -14,12 +14,18 @@ function login() {
         for(let i = 0 ; i<userList.length;i++){
             if(userList[i].username === username && userList[i].password === password ){
                 flag = true;
-                window.location.assign("productsList.html?"+userList[i].id);
+                window.location.assign("pages/productsList.html?"+userList[i].id);
             }
         }
         if (flag === false){
             alert("Wrong Username or Password");
             un.focus();
         }
+    }
+}
+window.addEventListener('keydown',goLogin);
+function goLogin(evt) {
+    if(evt.which === 13){
+        login();
     }
 }
