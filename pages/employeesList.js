@@ -30,7 +30,7 @@ function gotoEditEmployee(id){
 }
 function displayUserListBySearch(){
     let input = document.getElementById('searchInput').value.trim().toLowerCase();
-    let userList = userhandler.getUserByName(input,users);
+    let userList = userhandler.getUserByName(input,list);
     displayEmployee(userList,user);
 }
 
